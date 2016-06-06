@@ -1,4 +1,4 @@
-# Mean Stack Init
+# Blog
 
 #####Package			
 				Mongoose: 4.4.17
