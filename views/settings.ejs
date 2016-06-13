@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head><% include ./partials/head.ejs %></head>
-<body>
+<body ng-controller="adminSettingsController as adminSettingsCtrl" ng-cloak>
 <div class="container">
     <% include ./partials/nav.ejs %>
     <!--------------------------- Contents ------------------------------>
-    <div class="row" ng-controller="adminController" ng-cloak>
+    <div class="row">
         <div class="col-md-8">
             <div class="panel panel-default panel-body">
-                <div ng-show="isShowAdminPostSectioin">
-                    <% include ./admin-post.ejs %>
-                </div>
+                <form>
+
+                </form>
+
             </div>
         </div>
         <!----------------------- Right Bar ----------------------->

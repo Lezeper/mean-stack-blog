@@ -11,6 +11,12 @@ var PostSchema = new Schema({
   contents:{
     type: String
   },
+  category:{
+    type: String
+  },
+  tags:{
+    type: [String]
+  },
   created:{
     type: Date,
     required: true

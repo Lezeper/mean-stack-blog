@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <% include ./partials/head.ejs %>
+</head>
+<body ng-controller="postController as postCtrl"  ng-init="showPost('<%=postId%>');" ng-cloak>
+<div class="container">
+    <% include ./partials/nav.ejs %>
+    <!--------------------------- Contents ------------------------------>
+    <div class="row">
+        <!----------------------- Left ----------------------->
+        <div class="col-md-8">
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3>{{post.title}}</h3>
+                        <span class="">
+                            <i class="fa fa-clock-o"></i><abbr class="published"> {{post.created}}</abbr>
+                        </span>
+                        <hr>
+                        <div>
+                            <p>{{post.contents}}</p>
+                        </div>
+
+                        <hr>
+                        <a href="/"><h4>< Back</h4></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% include ./partials/home-rightbar.ejs %>
+    </div>
+</div>
+
+<% include ./partials/js-file.ejs %>
+</body>
+<% include ./partials/footer.ejs %>
+</html>
