@@ -1,7 +1,7 @@
 (function () {
 
   angular.module('meanApp', [
-    'ngRoute', 'meanApp.admin'
+    'ngRoute', 'meanApp.admin', 'bw.paging', 'ui.tinymce'
   ]).config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
@@ -24,7 +24,7 @@
       })
       .when('/p', {
         templateUrl: '/home/home.view.html',
-        controller: 'postCtrl',
+        controller: 'homeCtrl',
         controllerAs: 'vm'
       })
       .otherwise({redirectTo: '/'});
@@ -33,7 +33,7 @@
 
   }]).controller('mainCtrl', function ($scope) {
       $scope.year = 2015;
-    
+
   }).filter('range', function() {
     return function(input, total) {
       total = parseInt(total);
@@ -44,6 +44,20 @@
 
       return input;
     };
+  }).filter("sanitize", ['$sce', function($sce) {
+    return function(htmlCode){
+      return $sce.trustAsHtml(htmlCode);
+    }
+  }]).filter("sanitizeReadMore", ['$sce', function($sce) {
+    return function(htmlCode, id){
+      if(htmlCode.indexOf("<!--more-->") > -1 ){
+        htmlCode = htmlCode.substring(0, htmlCode.indexOf("<!--more-->"));
+        htmlCode += ("<hr><h4><a href='/p/"+id+"'>Read More...</a></h4>");
+      }
+      return $sce.trustAsHtml(htmlCode);
+    }
+  }]).controller("footerCtrl", function ($scope) {
+    $scope.year = new Date().getFullYear();
   });
 
   angular.module('meanApp.admin', []).config(['$routeProvider', function ($routeProvider) {

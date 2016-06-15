@@ -1,7 +1,9 @@
+
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background-color: #eeeeee;
+    min-width: 718px;
 }
 
 a {
@@ -10,6 +12,15 @@ a {
 
 a:link{
     text-decoration: none!important;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+p, li{
+    line-height: 25px;
+    font-size: 16px;
 }
 
 #rightbar {
@@ -28,4 +39,14 @@ a:link{
 .sm-space{
     margin: 5px 0;
     padding: 0;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.post-tag-bottom {
+    display: inline;
+    margin-left: 5px;
 }

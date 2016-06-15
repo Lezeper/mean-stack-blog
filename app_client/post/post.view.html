@@ -1,14 +1,19 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <h3>{{post.title}}</h3>
+        <h2><strong>{{post.title}}</strong></h2><br>
         <span class="">
-            <i class="fa fa-clock-o"></i><abbr class="published"> {{post.created | date:"MM/dd/yyyy 'at' h:mma"}}</abbr>
+            <i class="fa fa-clock-o fa-1x"></i> {{post.created  | date:"MM/dd/yyyy 'at' h:mma" }}
+            <span style="float: right"><i class="glyphicon glyphicon-folder-close"></i> <a
+                    href="/p?category={{post.category}}">{{post.category}}</a></span>
         </span>
         <hr>
-        <div>
-            <p>{{post.contents}}</p>
-        </div>
+        <div ng-bind-html="post.contents | sanitize"></div>
         <hr>
+        <div style="float: right">
+            <i class="glyphicon glyphicon-tags"></i>
+            <h6 ng-repeat="tag in post.tags" class="post-tag-bottom"><a href="/p?tag={{tag}}">{{tag}},</a></h6>
+        </div>
+
         <a href="/"><h4>< Back</h4></a>
     </div>
 </div>

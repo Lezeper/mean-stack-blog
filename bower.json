@@ -1,0 +1,21 @@
+{
+  "name": "MEAN-stack-blog",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Ma Lewis <lewis_studio@yahoo.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Lezeper/mean-stack-blog",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-tinymce": "latest"
+  }
+}
+

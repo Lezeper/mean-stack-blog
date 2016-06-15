@@ -7,10 +7,12 @@ var postSchema = new mongoose.Schema({
     required: true
   },
   contents:{
-    type: String
+    type: String,
+    required: true
   },
   category:{
-    type: String
+    type: String,
+    required: true
   },
   tags:{
     type: [String]

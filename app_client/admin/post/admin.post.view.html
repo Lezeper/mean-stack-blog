@@ -17,8 +17,8 @@
                 <td><a href="/p?id={{post._id}}">{{post.title}}</a></td>
                 <td>{{post.created}}</td>
                 <td>
+                    <a href="/admin/post?eid={{post._id}}"><i class="fa fa-pencil"></i></a>
                     <a href="#" ng-click="destroyPost(post._id)"><i class="fa fa-remove"></i></a>
-                    <a href="#" ng-click="findPostById(post._id)"><i class="fa fa-pencil"></i></a>
                 </td>
             </tr>
             </tbody>
@@ -35,7 +35,7 @@
         </fieldset>
         <fieldset class="form-group">
             <label for="postContents">* Contents</label>
-                <textarea class="form-control" id="postContents" ng-model="newPost.contents"
+                <textarea class="form-control" id="postContents" ng-model="newPost.contents" ui-tinymce="tinymceOptions"
                           placeholder="Contents"></textarea>
         </fieldset>
         <fieldset class="form-group">
@@ -51,6 +51,7 @@
         <button class="btn btn-default" ng-click="isShowAddPost=false; isShowPostsTable=true;">Cancel</button>
     </form>
     <!--------------------------------- Update Post ------------------------------->
+
     <form novalidate ng-show="isShowUpdatePost">
         <h2>Update Post</h2><br>
         <fieldset class="form-group">
@@ -60,7 +61,7 @@
         </fieldset>
         <fieldset class="form-group">
             <label for="updateContents">* Contents</label>
-                <textarea class="form-control" id="updateContents" ng-model="updatePostData.contents"
+                <textarea class="form-control" id="updateContents" ng-model="updatePostData.contents" ui-tinymce="tinymceOptions"
                           placeholder="Contents">{{updatePostData.contents}}</textarea>
         </fieldset>
         <fieldset class="form-group">
@@ -69,12 +70,11 @@
                    ng-model="updatePostData.category" placeholder="Category">
         </fieldset>
         <fieldset class="form-group">
-            <label for="updateTags">Tags (Separate with ";")</label>
+            <label for="updateTags">Tags (Separate with ",")</label>
             <input type="text" class="form-control" id="updateTags" value="updatePostData.tags"
-                   ng-model="updatePostData.tags" placeholder="Tags">
+                   ng-model="updatePostData.tags" placeholder="Tags" ng-list>
         </fieldset>
         <button class="btn btn-primary" ng-click="updatePost(updatePostData._id)">Update</button>
-        <button class="btn btn-default" ng-click="isShowUpdatePost=false; isShowPostsTable=true;">Cancel
-        </button>
+        <a href="/admin/post"><button class="btn btn-default">Cancel</button></a>
     </form>
 </div>

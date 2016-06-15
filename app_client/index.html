@@ -12,19 +12,24 @@
 
 <div class="container">
     <div class="row">
-        <h4>Lewis' Blog</h4>
-
         <navigation></navigation>
 
-        <div class="col-md-8" ng-view></div>
+        <div class="col-md-9" ng-view></div>
 
-        <rightbar></rightbar>
+        <div class="col-md-3 col-md-offset-0">
+            <rightbar></rightbar>
+        </div>
 
     </div>
 </div>
 
+<script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
 <script src="lib/angular/angular.min.js"></script>
 <script src="lib/angular/angular-route.min.js"></script>
+<script src="lib/paging.min.js"></script>
+<script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+<script type="text/javascript" src="tinymce-dist/tinymce.js"></script>
+<script type="text/javascript" src="angular-ui-tinymce/src/tinymce.js"></script>
 
 <script src="main.js"></script>
 <script src="/home/home.controller.js"></script>
@@ -39,10 +44,12 @@
 <script src="/common/directives/navigation/navigation.controller.js"></script>
 <script src="/common/directives/rightbar/rightbar.controller.js"></script>
 <script src="/common/directives/rightbar/rightbar.directive.js"></script>
+
 </body>
-<footer class="text-center container" ng-controller="mainCtrl">
+<footer class="text-center container" ng-controller="footerCtrl">
     <div class="panel panel-default">
-        <h6 class="panel-body"><i class="glyphicon glyphicon-copyright-mark"></i> Copyright {{year}} Ma Lewis. All rights reserved.</h6>
+        <h5 class="panel-body"><i class="glyphicon glyphicon-copyright-mark"></i> Copyright {{year}} Ma Lewis.
+            <a href="https://github.com/Lezeper"><i class="fa fa-github fa-1x"></i></a> </h5>
     </div>
 </footer>
 </html>
