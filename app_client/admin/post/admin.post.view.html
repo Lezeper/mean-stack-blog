@@ -1,0 +1,80 @@
+<div class="panel panel-default panel-body">
+    <h2 class="text-center">Admin Post Panel</h2>
+    <hr>
+    <div ng-show="isShowPostsTable">
+        <table id="posts_table" class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="post in posts">
+                <td><input type="checkbox"></td>
+                <td><a href="/p?id={{post._id}}">{{post.title}}</a></td>
+                <td>{{post.created}}</td>
+                <td>
+                    <a href="#" ng-click="destroyPost(post._id)"><i class="fa fa-remove"></i></a>
+                    <a href="#" ng-click="findPostById(post._id)"><i class="fa fa-pencil"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <button class="btn btn-default" ng-click="isShowAddPost=true; isShowPostsTable=false;">Add</button>
+    </div>
+    <!--------------------------------- Add Post ------------------------------->
+    <form novalidate ng-show="isShowAddPost">
+        <h2>Add Post</h2><br>
+        <fieldset class="form-group">
+            <label for="postTitle">* Title</label>
+            <input type="text" class="form-control" id="postTitle" ng-model="newPost.title" placeholder="Title">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="postContents">* Contents</label>
+                <textarea class="form-control" id="postContents" ng-model="newPost.contents"
+                          placeholder="Contents"></textarea>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="postCategory">* Category</label>
+            <input type="text" class="form-control" id="postCategory" ng-model="newPost.category"
+                   placeholder="Category">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="postTags">Tags (Separate with ";")</label>
+            <input type="text" class="form-control" id="postTags" ng-model="newPost.tags" placeholder="Tags">
+        </fieldset>
+        <button class="btn btn-primary" ng-click="createPost()">Submit</button>
+        <button class="btn btn-default" ng-click="isShowAddPost=false; isShowPostsTable=true;">Cancel</button>
+    </form>
+    <!--------------------------------- Update Post ------------------------------->
+    <form novalidate ng-show="isShowUpdatePost">
+        <h2>Update Post</h2><br>
+        <fieldset class="form-group">
+            <label for="updateTitle">* Title</label>
+            <input type="text" class="form-control" id="updateTitle" value="updatePostData.title"
+                   ng-model="updatePostData.title" placeholder="Title">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="updateContents">* Contents</label>
+                <textarea class="form-control" id="updateContents" ng-model="updatePostData.contents"
+                          placeholder="Contents">{{updatePostData.contents}}</textarea>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="updateCategory">* Category</label>
+            <input type="text" class="form-control" id="updateCategory" value="updatePostData.category"
+                   ng-model="updatePostData.category" placeholder="Category">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="updateTags">Tags (Separate with ";")</label>
+            <input type="text" class="form-control" id="updateTags" value="updatePostData.tags"
+                   ng-model="updatePostData.tags" placeholder="Tags">
+        </fieldset>
+        <button class="btn btn-primary" ng-click="updatePost(updatePostData._id)">Update</button>
+        <button class="btn btn-default" ng-click="isShowUpdatePost=false; isShowPostsTable=true;">Cancel
+        </button>
+    </form>
+</div>

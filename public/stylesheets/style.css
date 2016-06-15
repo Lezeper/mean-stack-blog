@@ -1,9 +1,31 @@
 body {
-  padding: 20px;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background-color: #eeeeee;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
+}
+
+a:link{
+    text-decoration: none!important;
+}
+
+#rightbar {
+    width: 285px;
+    max-width: 285px;
+    display: inline-block;
+}
+
+.rightbar-tag{
+    margin: 0 10px 10px 0;
+    display:block;
+    float: left;
+    text-decoration: none;
+}
+
+.sm-space{
+    margin: 5px 0;
+    padding: 0;
 }

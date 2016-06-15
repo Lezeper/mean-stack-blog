@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="meanApp">
+<head>
+    <title>Lewis' Blog</title>
+    <base href="/">
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <h4>Lewis' Blog</h4>
+
+        <navigation></navigation>
+
+        <div class="col-md-8" ng-view></div>
+
+        <rightbar></rightbar>
+
+    </div>
+</div>
+
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular/angular-route.min.js"></script>
+
+<script src="main.js"></script>
+<script src="/home/home.controller.js"></script>
+<script src="/admin/overview/admin.overview.controller.js"></script>
+<script src="/admin/post/admin.post.controller.js"></script>
+<script src="/auth/login/login.controller.js"></script>
+<script src="/auth/register/register.controller.js"></script>
+<script src="/post/post.controller.js"></script>
+<script src="/common/services/authentication.service.js"></script>
+<script src="/common/services/data.service.js"></script>
+<script src="/common/directives/navigation/navigation.directive.js"></script>
+<script src="/common/directives/navigation/navigation.controller.js"></script>
+<script src="/common/directives/rightbar/rightbar.controller.js"></script>
+<script src="/common/directives/rightbar/rightbar.directive.js"></script>
+</body>
+<footer class="text-center container" ng-controller="mainCtrl">
+    <div class="panel panel-default">
+        <h6 class="panel-body"><i class="glyphicon glyphicon-copyright-mark"></i> Copyright {{year}} Ma Lewis. All rights reserved.</h6>
+    </div>
+</footer>
+</html>
