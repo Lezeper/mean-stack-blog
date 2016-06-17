@@ -1,9 +1,19 @@
 
 body {
     padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px 'Open Sans',sans-serif;
+    word-wrap: break-word;
     background-color: #eeeeee;
     min-width: 718px;
+}
+
+.contents {
+    padding: 5px 25px;
+}
+
+.contents p{
+    font-size: 18px;
+    line-height: 1.7;
 }
 
 a {
@@ -17,10 +27,6 @@ a:link{
 img {
     max-width: 100%;
     height: auto;
-}
-p, li{
-    line-height: 25px;
-    font-size: 16px;
 }
 
 #rightbar {

@@ -1,8 +1,8 @@
 (function () {
 
   angular.module('meanApp')
-    .controller('rightbarCtrl', ['$scope', 'meanData', 'authentication', '$route', '$rootScope',
-      function ($scope, meanData, authentication, $route, $rootScope) {
+    .controller('rightbarCtrl', ['$scope', 'meanData', 'authentication', '$route', '$rootScope', '$location',
+      function ($scope, meanData, authentication, $route, $rootScope, $location) {
 
         $scope.isLoggedIn = authentication.isLoggedIn();
 
@@ -12,6 +12,7 @@
         };
 
         $scope.search = function () {
+          if($location.path() != '/'){ window.location.href="/"; }
           if($scope.keyword != ''){
             meanData.getPostsByKeyword($scope.keyword).success(function (data) {
               $rootScope.$broadcast('posts', data);

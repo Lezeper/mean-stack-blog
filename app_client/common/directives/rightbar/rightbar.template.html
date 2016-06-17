@@ -1,45 +1,48 @@
-<div ng-show="isLoggedIn">
+<div class="col-md-3 col-md-offset-0">
+    <div ng-show="isLoggedIn">
+        <div class="panel">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="panel-title"><h4><i class="fa fa-user"></i> Admin Panel</h4></div>
+                </li>
+                <li class="list-group-item"><a href="/admin">Overview</a></li>
+                <li class="list-group-item"><a href="/admin/post">Posts</a></li>
+                <li class="list-group-item"><a href="" ng-click="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <form class="navbar-form" role="search" novalidate>
+            <input type="text" class="form-control" placeholder="Search" ng-model="keyword" style="width: 100%"
+                   ng-change="search()">
+        </form>
+    </div>
     <div class="panel">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="panel-title"><h4><i class="glyphicon glyphicon-user"></i> Admin Panel</h4></div>
-            </li>
-            <li class="list-group-item"><a href="/admin">Overview</a></li>
-            <li class="list-group-item"><a href="/admin/post">Posts</a></li>
-            <li class="list-group-item"><a href="" ng-click="logout()">Logout</a></li>
-        </ul>
-    </div>
-</div>
-
-<div class="panel panel-default">
-    <form class="navbar-form" role="search" novalidate>
-        <input type="text" class="form-control" placeholder="Search" ng-model="keyword" style="width: 100%"
-               ng-change="search()">
-    </form>
-</div>
-<div class="panel">
-    <div class="panel-body">
-        <div class="panel-title">
-            <h4><i class="glyphicon glyphicon-folder-close" style="font-size: smaller"></i> Category</h4>
+        <div class="panel-body">
+            <div class="panel-title">
+                <h4><i class="fa fa-folder" style="font-size: smaller"></i> Category</h4>
+            </div>
+            <hr style="margin-bottom: 5px">
+            <div ng-repeat="category in categories">
+                <a href="/p?category={{category._id}}">{{category._id}} ({{category.sum}})</a>
+                <hr class="sm-space">
+            </div>
         </div>
-        <hr style="margin-bottom: 5px">
-        <div ng-repeat="category in categories">
-            <a href="/p?category={{category._id}}">{{category._id}} ({{category.sum}})</a>
-            <hr class="sm-space">
+
+
+    </div>
+    <div class="panel">
+        <div class="panel-body">
+            <div class="panel-title">
+                <h4><i class="fa fa-tags" style="font-size: smaller"></i> Tag</h4>
+            </div>
+            <hr>
+            <h4 ng-repeat="tag in tags"><a href="/p?tag={{tag}}" class="rightbar-tag"><span
+                    class="label label-info">{{tag}}</span></a>
+            </h4>
+
         </div>
     </div>
 
-
-</div>
-<div class="panel">
-    <div class="panel-body">
-        <div class="panel-title">
-            <h4><i class="glyphicon glyphicon-tags" style="font-size: smaller"></i> Tag</h4>
-        </div>
-        <hr>
-        <h4 ng-repeat="tag in tags"><a href="/p?tag={{tag}}" class="rightbar-tag"><span
-                class="label label-info">{{tag}}</span></a>
-        </h4>
-
-    </div>
 </div>

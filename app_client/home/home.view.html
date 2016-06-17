@@ -1,21 +1,28 @@
-<div class="panel panel-default" ng-repeat="post in posts" ng-show="isShowPost{{$index+1}}" ngCloak>
-    <div class="panel-body">
-        <a href="/p/{{post._id}}"><h2>{{post.title}}</h2></a><br>
-        <a href="/admin/post?eid={{post._id}}" ng-show="isLoggedIn">Edit</a>
-        <i class="fa fa-clock-o fa-1x"></i> {{post.created  | date:"MM/dd/yyyy 'at' h:mma" }}
-        <hr>
-        <div ng-bind-html="post.contents | sanitizeReadMore: post._id"></div>
+<div class="col-md-9">
+    <div class="panel panel-default" ng-repeat="post in posts" ng-show="isShowPost{{$index+1}}" ngCloak>
+        <div class="panel-body">
+            <a href="/p/{{post._id}}"><h3>{{post.title}}</h3></a>
+            <a href="/admin/post?eid={{post._id}}" ng-show="isLoggedIn">Edit</a>
+            <i class="fa fa-clock-o fa-1x"></i> {{post.created  | date:"MM/dd/yyyy 'at' h:mma" }}
+            <span style="margin-left: 10px"><i class="fa fa-folder-open-o"></i> <a
+                    href="/p?category={{post.category}}">{{post.category}}</a></span>
+            <hr>
+            <div ng-bind-html="post.contents | sanitizeReadMore: post._id"></div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <paging
+                page="1"
+                page-size="pageSize"
+                total="totalSize"
+                show-prev-next="true"
+                show-first-last="true"
+                paging-action="changePage(page)">
+        </paging>
     </div>
 </div>
 
-<div class="text-center">
-    <paging
-            page="1"
-            page-size="pageSize"
-            total="totalSize"
-            show-prev-next="true"
-            show-first-last="true"
-            paging-action="changePage(page)">
-    </paging>
-</div>
+<rightbar></rightbar>
+
 

@@ -1,19 +1,23 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        <h2><strong>{{post.title}}</strong></h2><br>
-        <span class="">
-            <i class="fa fa-clock-o fa-1x"></i> {{post.created  | date:"MM/dd/yyyy 'at' h:mma" }}
-            <span style="float: right"><i class="glyphicon glyphicon-folder-close"></i> <a
-                    href="/p?category={{post.category}}">{{post.category}}</a></span>
-        </span>
-        <hr>
-        <div ng-bind-html="post.contents | sanitize"></div>
-        <hr>
-        <div style="float: right">
-            <i class="glyphicon glyphicon-tags"></i>
-            <h6 ng-repeat="tag in post.tags" class="post-tag-bottom"><a href="/p?tag={{tag}}">{{tag}},</a></h6>
-        </div>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="contents">
+                <h2><strong>{{post.title}}</strong></h2><br>
 
-        <a href="/"><h4>< Back</h4></a>
+                <i class="fa fa-clock-o fa-1x"></i> {{post.created  | date:"MM/dd/yyyy 'at' h:mma" }}
+                <span style="margin-left: 10px"><i class="fa fa-folder-open-o"></i> <a
+                        href="/p?category={{post.category}}">{{post.category}}</a></span>
+                <hr>
+                <div class="content" ng-bind-html="post.contents | sanitize"></div>
+                <hr>
+                <div style="float: right">
+                    <i class="fa fa-tags"></i>
+                    <h6 ng-repeat="tag in post.tags" class="post-tag-bottom"><a href="/p?tag={{tag}}">{{tag}},</a></h6>
+                </div>
+
+                <a href="/"><h4>< Back</h4></a>
+            </div>
+
+        </div>
     </div>
 </div>
