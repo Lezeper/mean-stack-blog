@@ -10,9 +10,9 @@
         GET - /api/post/tag/:tag                    - get posts by tag
         GET - /api/post/id/:id                      - get post by id
 ##### Authority required
-        POST - /post/               - create new post
-        PUT - /post/id/:id          - update post
-        DELETE - /post/id/:id       - delete post
+        POST - /api/post/               - create new post
+        PUT - /api/post/id/:id          - update post
+        DELETE - /api/post/id/:id       - delete post
     
 ### Links
         /               - home page
