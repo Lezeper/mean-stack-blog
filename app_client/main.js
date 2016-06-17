@@ -8,11 +8,6 @@
         templateUrl: '/home/home.view.html',
         controller: 'homeCtrl'
       })
-      .when('/register', {
-        templateUrl: '/auth/register/register.view.html',
-        controller: 'registerCtrl',
-        controllerAs: 'vm'
-      })
       .when('/login', {
         templateUrl: '/auth/login/login.view.html',
         controller: 'loginCtrl',

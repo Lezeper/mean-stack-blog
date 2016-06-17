@@ -22,7 +22,7 @@ router.get('/post/tag', postCtrl.listTag);
 router.get('/post/id/:id', postCtrl.findPostById);
 
 // authentication
-router.post('/register', ctrlAuth.register);
+// router.post('/register', auth, ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
 // admin page
