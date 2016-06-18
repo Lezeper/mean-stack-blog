@@ -61,8 +61,10 @@
         };
 
         $scope.tinymceOptions = {
+          height: 500,
           plugins: 'link image codesample advlist code preview',
-          toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | codesample | link image'
+          toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | codesample | link image',
+          valid_elements : '*[*]'
         };
 
       }]);

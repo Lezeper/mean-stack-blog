@@ -4,20 +4,20 @@
             <div class="contents">
                 <h2><strong>{{post.title}}</strong></h2><br>
 
-                <i class="fa fa-clock-o fa-1x"></i> {{post.created  | date:"MM/dd/yyyy 'at' h:mma" }}
+                <i class="fa fa-clock-o fa-1x"></i> {{post.created | date:"MM/dd/yyyy 'at' h:mma" }}
                 <span style="margin-left: 10px"><i class="fa fa-folder-open-o"></i> <a
                         href="/p?category={{post.category}}">{{post.category}}</a></span>
+
                 <hr>
-                <div class="content" ng-bind-html="post.contents | sanitize"></div>
+                <div class="content" ng-bind-html="post.contents | sanitize" ></div>
                 <hr>
                 <div style="float: right">
                     <i class="fa fa-tags"></i>
-                    <h6 ng-repeat="tag in post.tags" class="post-tag-bottom"><a href="/p?tag={{tag}}">{{tag}},</a></h6>
+                    <h6 ng-repeat="tag in post.tags" class="post-tag-bottom" ng-init="prismHighlight()"><a href="/p?tag={{tag}}">{{tag}},</a></h6>
                 </div>
 
                 <a href="/"><h4>< Back</h4></a>
             </div>
-
         </div>
     </div>
 </div>

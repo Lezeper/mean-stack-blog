@@ -1,9 +1,6 @@
 # Bower
 bower_components
 
-#Config
-config.js
-
 # WebStorm
 .idea
 

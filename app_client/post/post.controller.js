@@ -9,5 +9,10 @@
             $scope.post = data;
           })
       }
+
+      $scope.prismHighlight = function () {
+        Prism.highlightAll ();
+      };
+
     }]);
 })();

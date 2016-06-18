@@ -1,17 +1,27 @@
 
 body {
     padding: 50px;
-    font: 14px 'Open Sans',sans-serif;
+    font: 14px 'Open Sans', sans-serif;
     word-wrap: break-word;
     background-color: #eeeeee;
     min-width: 718px;
+}
+
+code {
+    color: #666;
+    background: #eee;
+    border-radius: 3px;
+}
+
+p {
+    line-height: 1.7;
 }
 
 .contents {
     padding: 5px 25px;
 }
 
-.contents p{
+.contents p {
     font-size: 18px;
     line-height: 1.7;
 }
@@ -20,8 +30,8 @@ a {
     color: #00B7FF;
 }
 
-a:link{
-    text-decoration: none!important;
+a:link {
+    text-decoration: none !important;
 }
 
 img {
@@ -35,14 +45,14 @@ img {
     display: inline-block;
 }
 
-.rightbar-tag{
+.rightbar-tag {
     margin: 0 10px 10px 0;
-    display:block;
+    display: block;
     float: left;
     text-decoration: none;
 }
 
-.sm-space{
+.sm-space {
     margin: 5px 0;
     padding: 0;
 }
