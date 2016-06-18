@@ -26,28 +26,29 @@
 
     $locationProvider.html5Mode(true);
 
-  }]).controller('mainCtrl', function ($scope) {
+  }])
+    .controller('mainCtrl', function ($scope) {
       $scope.year = 2015;
 
-  }).filter('range', function() {
-    return function(input, total) {
+    }).filter('range', function () {
+    return function (input, total) {
       total = parseInt(total);
 
-      for (var i=0; i<total; i++) {
+      for (var i = 0; i < total; i++) {
         input.push(i);
       }
 
       return input;
     };
-  }).filter("sanitize", ['$sce', function($sce) {
-    return function(htmlCode){
+  }).filter("sanitize", ['$sce', function ($sce) {
+    return function (htmlCode) {
       return $sce.trustAsHtml(htmlCode);
     }
-  }]).filter("sanitizeReadMore", ['$sce', function($sce) {
-    return function(htmlCode, id){
-      if(htmlCode.indexOf("<!--more-->") > -1 ){
+  }]).filter("sanitizeReadMore", ['$sce', function ($sce) {
+    return function (htmlCode, id) {
+      if (htmlCode.indexOf("<!--more-->") > -1) {
         htmlCode = htmlCode.substring(0, htmlCode.indexOf("<!--more-->"));
-        htmlCode += ("<hr><h4><a href='/p/"+id+"'>Read More...</a></h4>");
+        htmlCode += ("<hr><h4><a href='/p/" + id + "'>Read More...</a></h4>");
       }
       return $sce.trustAsHtml(htmlCode);
     }
@@ -71,7 +72,7 @@
   }]).run(['$rootScope', '$location', 'authentication', function ($rootScope, $location, authentication) {
     $rootScope.$on('$routeChangeStart', function (event, nextRoute, currentRoute) {
       if (!authentication.isLoggedIn()) {
-        if($location.path() === '/admin' || $location.path() === '/admin/post'){
+        if ($location.path() === '/admin' || $location.path() === '/admin/post') {
           $location.path('/');
         }
       }

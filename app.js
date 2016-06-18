@@ -1,17 +1,9 @@
-/*
-
-  There are some minor modifications to the default Express setup
-  Each is commented and marked with [SH] to make them easy to find
-
- */
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// [SH] Require Passport
 var passport = require('passport');
 
 // [SH] Bring in the data model

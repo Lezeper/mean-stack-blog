@@ -1,12 +1,14 @@
 (function () {
 
   angular.module('meanApp')
-    .controller('adminPostCtrl', ['$scope', '$location', 'meanData', '$routeParams',
-      function ($scope, $location, meanData, $routeParams) {
+    .controller('adminPostCtrl', ['$scope', '$location', 'meanData', '$routeParams', '$rootScope',
+      function ($scope, $location, meanData, $routeParams, $rootScope) {
 
         $scope.isShowPostsTable = true;
         $scope.isShowAddPost = false;
         $scope.isShowUpdatePost = false;
+
+        $rootScope.$broadcast('showRightBar', true);
 
         meanData.getAllPosts()
           .success(function (data) {

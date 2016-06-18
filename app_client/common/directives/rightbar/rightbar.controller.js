@@ -1,10 +1,14 @@
 (function () {
 
   angular.module('meanApp')
-    .controller('rightbarCtrl', ['$scope', 'meanData', 'authentication', '$route', '$rootScope', '$location',
-      function ($scope, meanData, authentication, $route, $rootScope, $location) {
+    .controller('rightbarCtrl', ['$scope', 'meanData', 'authentication', '$rootScope',
+      function ($scope, meanData, authentication, $rootScope) {
 
         $scope.isLoggedIn = authentication.isLoggedIn();
+
+        $scope.$on('showRightBar', function(event, data){
+          $scope.showRightBar = data;
+        });
 
         $scope.logout = function () {
           authentication.logout();
@@ -12,7 +16,6 @@
         };
 
         $scope.search = function () {
-          if($location.path() != '/'){ window.location.href="/"; }
           if($scope.keyword != ''){
             meanData.getPostsByKeyword($scope.keyword).success(function (data) {
               $rootScope.$broadcast('posts', data);

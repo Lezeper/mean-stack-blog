@@ -1,11 +1,11 @@
 (function () {
 
   angular.module('meanApp')
-    .controller('homeCtrl', ['$scope', '$routeParams', 'meanData', 'authentication',
-      function ($scope, $routeParams, meanData, authentication) {
+    .controller('homeCtrl', ['$scope', '$routeParams', 'meanData', 'authentication', '$rootScope',
+      function ($scope, $routeParams, meanData, authentication,$rootScope ) {
 
         $scope.pageSize = 5;
-
+        $rootScope.$broadcast('showRightBar', true);
         $scope.isLoggedIn = authentication.isLoggedIn();
 
         var defaultPaging = function (length) {

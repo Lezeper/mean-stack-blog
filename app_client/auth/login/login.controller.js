@@ -1,10 +1,12 @@
 (function () {
 
   angular.module('meanApp')
-  .controller('loginCtrl', ['$scope', '$location', 'authentication', function ($scope, $location, authentication) {
+  .controller('loginCtrl', ['$scope', '$location', 'authentication', '$rootScope',
+    function ($scope, $location, authentication, $rootScope) {
 
     $scope.error = false;
-
+    $rootScope.$broadcast('showRightBar', false);
+      
     $scope.onSubmit = function () {
       authentication
         .login($scope.credentials)
