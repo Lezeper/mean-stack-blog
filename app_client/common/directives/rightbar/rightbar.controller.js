@@ -6,6 +6,8 @@
 
         $scope.isLoggedIn = authentication.isLoggedIn();
 
+        $scope.showRightBar = true;
+
         $scope.$on('showRightBar', function(event, data){
           $scope.showRightBar = data;
         });

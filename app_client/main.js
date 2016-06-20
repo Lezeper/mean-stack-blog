@@ -28,7 +28,7 @@
 
   }])
     .controller('mainCtrl', function ($scope) {
-      $scope.year = 2015;
+      $scope.year = new Date().getFullYear();
 
     }).filter('range', function () {
     return function (input, total) {
