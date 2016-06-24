@@ -52,9 +52,9 @@
       }
       return $sce.trustAsHtml(htmlCode);
     }
-  }]).controller("footerCtrl", function ($scope) {
+  }]).controller("footerCtrl", ['$scope', function ($scope) {
     $scope.year = new Date().getFullYear();
-  });
+  }]);
 
   angular.module('meanApp.admin', []).config(['$routeProvider', function ($routeProvider) {
     $routeProvider
