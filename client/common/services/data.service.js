@@ -63,6 +63,22 @@
         })
       };
 
+      var getAllLogs =function () {
+        return $http.get('/api/log', {
+          headers: {
+            Authorization: 'Bearer ' + authentication.getToken()
+          }
+        })
+      };
+
+      var clearAllLogs = function () {
+        return $http.delete('/api/log', {
+          headers: {
+            Authorization: 'Bearer ' + authentication.getToken()
+          }
+        })
+      };
+
       return {
         getProfile: getProfile,
         getAllPosts: getAllPosts,
@@ -74,7 +90,9 @@
         listCategory: listCategory,
         listTag: listTag,
         getPostsByCategory: getPostsByCategory,
-        getPostsByTag: getPostsByTag
+        getPostsByTag: getPostsByTag,
+        getAllLogs: getAllLogs,
+        clearAllLogs: clearAllLogs
       };
     }]);
 

@@ -10,14 +10,6 @@
 
         $rootScope.$broadcast('showRightBar', true);
 
-        meanData.getAllPosts()
-          .success(function (data) {
-            $scope.posts = data;
-          })
-          .error(function (e) {
-            alert(e.message);
-          });
-
         if ($routeParams.eid) {
           meanData.getPostById($routeParams.eid)
             .success(function (data) {
@@ -29,6 +21,16 @@
               alert(e.message);
             });
         }
+
+        $scope.getAllPosts = function () {
+          meanData.getAllPosts()
+            .success(function (data) {
+              $scope.posts = data;
+            })
+            .error(function (e) {
+              alert(e.message);
+            });
+        };
 
         $scope.createPost = function () {
           meanData.createPost($scope.newPost)
@@ -54,7 +56,7 @@
           if (confirm("Are you sure to remove this post?")) {
             meanData.destroyPost(id)
               .success(function () {
-                window.location.reload();
+                $scope.getAllPosts();
               })
               .error(function (e) {
                 alert(e.message);

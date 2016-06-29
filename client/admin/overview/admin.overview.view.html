@@ -1,16 +1,22 @@
-<div class="col-md-9">
+<div class="col-md-9" ng-init="getAllLogs()">
     <div class="panel panel-default panel-body">
         <h2 class="form-signin-heading text-center">Overview</h2>
         <hr>
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label class="col-sm-3 control-label">Full name</label>
-                <p class="form-control-static">{{ user.name }}</p>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">Email</label>
-                <p class="form-control-static">{{ user.email }}</p>
-            </div>
-        </form>
+        <hr>
+        <h2 class="text-center">Logs</h2>
+        <table class="table">
+            <tr>
+                <th>Info</th>
+                <th>Trigger</th>
+                <th>Date</th>
+            </tr>
+            <tr ng-repeat="log in logs">
+                <td>{{log.info}}</td>
+                <td>{{log.trigger}}</td>
+                <td>{{log.created}}</td>
+            </tr>
+        </table>
+        <hr>
+        <button ng-click="clearAllLogs()" class="btn btn-default">Clear</button>
     </div>
 </div>

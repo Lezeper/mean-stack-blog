@@ -5,13 +5,24 @@
 
       $scope.user = {};
       $rootScope.$broadcast('showRightBar', true);
-      meanData.getProfile()
-        .success(function (data) {
-          $scope.user = data;
+      
+      $scope.clearAllLogs = function () {
+        meanData.clearAllLogs().success(function () {
+          $scope.getAllLogs();
         })
-        .error(function (e) {
-          console.log(e);
-        });
+      };
+
+      $scope.views =
+
+      $scope.getAllLogs = function () {
+        meanData.getAllLogs()
+          .success(function (data) {
+            $scope.logs = data;
+          })
+          .error(function (e) {
+            console.log(e);
+          });
+      };
 
     }]);
 })();

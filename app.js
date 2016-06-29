@@ -11,6 +11,8 @@ require('./server/config/passport');
 
 var app = express();
 
+app.enable('trust proxy');
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));

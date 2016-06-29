@@ -11,6 +11,7 @@ var auth = jwt({
 var profileCtrl = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
 var postCtrl = require('../controllers/post');
+var logCtrl = require('../controllers/log');
 
 // home page post
 router.get('/post', postCtrl.findAllPosts);
@@ -29,6 +30,8 @@ router.post('/login', ctrlAuth.login);
 router.post('/post/', auth, postCtrl.createPost);
 router.put('/post/id/:id', auth, postCtrl.updatePost);
 router.delete('/post/id/:id', auth, postCtrl.destroyPost);
+router.get('/log', auth, logCtrl.findAllLogs);
+router.delete('/log', auth, logCtrl.clearLogs);
 
 // profile
 router.get('/profile', auth, profileCtrl.profileRead);

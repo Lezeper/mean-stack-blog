@@ -1,6 +1,19 @@
 var mongoose = require('mongoose');
 var Post = mongoose.model('Post');
+var logCtrl = require('../controllers/log');
 var _ = require('lodash');
+
+function ActivityRecorder(req, info){
+  var ip = req.ip.split(':')[3];
+  if(ip){
+    // logCtrl.createLog(ip, info);
+    logCtrl.isLogExists(ip, info, function (isExists) {
+      if(!isExists){
+        logCtrl.createLog(ip, info);
+      }
+    })
+  }
+}
 
 module.exports.findAllPosts = function (req, res) {
   Post.find({}).sort({
@@ -10,7 +23,8 @@ module.exports.findAllPosts = function (req, res) {
       return res.send(500, err);
     }
     res.json(posts);
-  })
+  });
+  ActivityRecorder(req, "findAllPosts.");
 };
 
 module.exports.findPostById = function (req, res) {
@@ -20,6 +34,7 @@ module.exports.findPostById = function (req, res) {
     }
     return res.json(post);
   });
+  ActivityRecorder(req, "check post id: "+req.params.id);
 };
 
 module.exports.findPostsByKeyword = function (req, res) {
