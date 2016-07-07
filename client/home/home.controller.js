@@ -29,7 +29,6 @@
               defaultPaging(data.length);
             });
         }
-
         if ($routeParams.category) {
           meanData.getPostsByCategory($routeParams.category)
             .success(function (data) {

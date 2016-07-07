@@ -25,6 +25,7 @@ router.get('/post/id/:id', postCtrl.findPostById);
 // authentication
 // router.post('/register', auth, ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
+router.post('/log', logCtrl.createLog);
 
 // admin page
 router.post('/post/', auth, postCtrl.createPost);

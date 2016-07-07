@@ -17,8 +17,12 @@ p {
     line-height: 1.7;
 }
 
+.home-post-list {
+    padding: 5px 35px 10px 35px;
+}
+
 .contents {
-    padding: 5px 25px;
+    padding: 5px 23px;
 }
 
 .contents p {

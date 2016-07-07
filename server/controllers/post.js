@@ -4,9 +4,8 @@ var logCtrl = require('../controllers/log');
 var _ = require('lodash');
 
 function ActivityRecorder(req, info){
-  var ip = req.ip.split(':')[3];
+  var ip = req.ip;
   if(ip){
-    // logCtrl.createLog(ip, info);
     logCtrl.isLogExists(ip, info, function (isExists) {
       if(!isExists){
         logCtrl.createLog(ip, info);

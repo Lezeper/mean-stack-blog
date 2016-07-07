@@ -1,6 +1,6 @@
 <div class="col-md-9">
     <div class="panel panel-default" ng-repeat="post in posts" ng-show="isShowPost{{$index+1}}" ngCloak>
-        <div class="panel-body">
+        <div class="panel-body home-post-list">
             <a href="/p/{{post._id}}"><h3>{{post.title}}</h3></a>
             <a href="/admin/post?eid={{post._id}}" ng-show="isLoggedIn">Edit</a>
             <i class="fa fa-clock-o fa-1x"></i> {{post.created  | date:"MM/dd/yyyy 'at' h:mma" }}

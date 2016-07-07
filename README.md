@@ -12,7 +12,6 @@
 ##### Authority required
         GET - /api/log                  - get logs
         POST - /api/post/               - create new post
-        POST - /api/log                 - create log
         PUT - /api/post/id/:id          - update post
         DELETE - /api/post/id/:id       - delete post
         DELETE - /api/log               - clear all logs
@@ -24,7 +23,8 @@
         /p/:id          - specific post page
         /p?tag=... ?category=... ?keyword=...   - find posts by filter
         /admin/post     - admin post panel
-        /admin/post?eid={eid}   - edit post 
+        /admin/post?eid={eid}   - edit post
+        /api/log   [POST]  - create log
     
 ### Framework and Plugin
         Mongoose
